@@ -22,7 +22,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('Project3_Custom_Environment_Variables') {
-                    bat 'python -m py_compile app.py'
+                    bat '"C:\\Users\\Administrator\\Local\\Programs\\Python\\Python313\\python.exe" -m py_compile app.py'
                     echo "${env.APP_NAME} version ${env.APP_VERSION} compiled successfully."
                 }
             }
