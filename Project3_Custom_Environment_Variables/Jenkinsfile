@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/PDGamerSG/Assessment-7-Question-1/tree/master/Project3_Custom_Environment_Variables'
+                git branch: 'master', url: 'https://github.com/PDGamerSG/Assessment-7-Question-1.git'
             }
         }
 
