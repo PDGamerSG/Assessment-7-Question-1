@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/PDGamerSG/Assessment-7-Question-1.git'
+                git branch: 'master', url: 'https://github.com/PDGamerSG/Assessment-7-Question-1/tree/master/Project1_Parameterized_Build'
             }
         }
 
