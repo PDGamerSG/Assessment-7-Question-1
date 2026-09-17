@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    parameters {
+        choice(name: 'EXAM_TYPE', choices: ['quiz', 'midterm', 'final'], description: 'Select the exam type to build for')
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/<student-username>/<repo-name>.git'
+            }
+        }
+
+        stage('Show Parameter') {
+            steps {
+                echo "Selected exam type: ${params.EXAM_TYPE}"
+            }
+        }
+
+        stage('Build for Exam Type') {
+            steps {
+                echo "Building the Online Examination and Evaluation System for the ${params.EXAM_TYPE} exam..."
+            }
+        }
+    }
+}
