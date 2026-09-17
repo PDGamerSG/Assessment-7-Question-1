@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/PDGamerSG/Assessment-7-Question-1.git'
+                git branch: 'master', url: 'https://github.com/PDGamerSG/Assessment-7-Question-1.git'
             }
         }
 
@@ -21,8 +21,10 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'python -m py_compile app.py'
-                echo "${env.APP_NAME} version ${env.APP_VERSION} compiled successfully."
+                dir('Project3_Custom_Environment_Variables') {
+                    bat 'python -m py_compile app.py'
+                    echo "${env.APP_NAME} version ${env.APP_VERSION} compiled successfully."
+                }
             }
         }
     }

@@ -4,19 +4,23 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/PDGamerSG/Assessment-7-Question-1.git'
+                git branch: 'master', url: 'https://github.com/PDGamerSG/Assessment-7-Question-1.git'
             }
         }
 
         stage('Generate Report') {
             steps {
-                bat 'python app.py'
+                dir('Project2_Archive_Artifacts') {
+                    bat 'python app.py'
+                }
             }
         }
 
         stage('Archive Report') {
             steps {
-                archiveArtifacts artifacts: 'report.txt', fingerprint: true
+                dir('Project2_Archive_Artifacts') {
+                    archiveArtifacts artifacts: 'report.txt', fingerprint: true
+                }
             }
         }
     }
